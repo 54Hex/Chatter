@@ -78,12 +78,12 @@ struct Intro2: View {
             
             
             VStack {
-                Image(systemName: "text.bubble.fill")
+                Image(systemName: "bubble.left.and.bubble.right.fill")
                     .font(.system(size: 60))
                     .foregroundColor(.white)
                     .padding()
                 
-                Text("Chat with people")
+                Text("ChatBot")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                 
             }
