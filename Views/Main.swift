@@ -5,18 +5,18 @@ struct TB: View {
         TabView {
             Main()
                 .tabItem {
-                    Label("Main", systemImage: "person.fill")
+                    Label("Home", systemImage: "person.fill")
                 }
-            QView()
+            BotView()
                 .tabItem {
-                    Label("Questions", systemImage: "bubble.left.and.bubble.right.fill")
+                    Label("ChatterBot", systemImage: "bubble.left.and.bubble.right.fill")
                 }
             Trainer()
                 .tabItem {
                     Label("Learn", systemImage: "book.fill")
                 }
             
-
+            
         }.accentColor(Color("Purple"))
     }
 }
@@ -25,11 +25,14 @@ struct TB: View {
 
 struct Main: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView {
+            VStack {
+                Text("Home")
+                    .font(.system(size: 40, weight: .bold, design: .default))
+                    .offset(x: -120)
+    
+                
+            }
         }
     }
 }
@@ -47,3 +50,9 @@ struct TB_Previews: PreviewProvider {
     }
 }
 
+struct Main_Previews: PreviewProvider {
+    static var previews: some View {
+        Main()
+            .preferredColorScheme(.dark)
+    }
+}

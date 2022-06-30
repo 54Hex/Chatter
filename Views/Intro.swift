@@ -22,15 +22,15 @@ struct Intro: View {
                 }
                 .offset(y: -100)
                 
-                Text("""
-                 Note:
-                 This experience is best viewed in Horizontal
-                 """)
-                .font(.system(size: 30, weight: .semibold, design: .rounded))
-                .fixedSize(horizontal: true, vertical: true)
-                .foregroundColor(.secondary)
-                .offset(y: -100)
-                .padding()
+//                Text("""
+//                 Note:
+//                 This experience is best viewed in Horizontal
+//                 """)
+//                .font(.system(size: 30, weight: .semibold, design: .rounded))
+//                .fixedSize(horizontal: true, vertical: true)
+//                .foregroundColor(.secondary)
+//                .offset(y: -100)
+//                .padding()
                 
                 NavigationLink(destination: Intro2()) {
                     Text("Next")
@@ -141,7 +141,7 @@ struct Intro2: View {
                             
                             Image(systemName: "person.fill")
                                 .font(.system(size: 30))
-                            Text("Name 1")
+                            Text("James")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                             
                         }.offset(x: 0)
@@ -153,7 +153,7 @@ struct Intro2: View {
                         HStack {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 30))
-                            Text("Name 2")
+                            Text("Natalie")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                             
                             
@@ -168,11 +168,23 @@ struct Intro2: View {
                     
                     VStack {
                         
-                        HStack {
+//                        HStack {
                             
+//                            Image(systemName: "person.fill")
+//                                .font(.system(size: 30))
+//                            Text("Name 3")
+//                                .font(.system(size: 30, weight: .semibold, design: .rounded))
+//
+//                        }.offset(x: 0)
+//                            .frame(width: 250, height: 50)
+//                            .background(Color("DG"))
+//                            .cornerRadius(10)
+//                            .offset(x: 10)
+                        
+                        HStack {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 30))
-                            Text("Name 3")
+                            Text("Hayden")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
                             
                         }.offset(x: 0)
@@ -181,29 +193,17 @@ struct Intro2: View {
                             .cornerRadius(10)
                             .offset(x: 10)
                         
-                        HStack {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 30))
-                            Text("Name 4")
-                                .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            
-                        }.offset(x: 0)
-                            .frame(width: 250, height: 50)
-                            .background(Color("DG"))
-                            .cornerRadius(10)
-                            .offset(x: 10)
-                        
-                        HStack {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 30))
-                            Text("Name 5")
-                                .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            
-                        }.offset(x: 0)
-                            .frame(width: 250, height: 50)
-                            .background(Color("DG"))
-                            .cornerRadius(10)
-                            .offset(x: 10)
+//                        HStack {
+//                            Image(systemName: "person.fill")
+//                                .font(.system(size: 30))
+//                            Text("Name 5")
+//                                .font(.system(size: 30, weight: .semibold, design: .rounded))
+//
+//                        }.offset(x: 0)
+//                            .frame(width: 250, height: 50)
+//                            .background(Color("DG"))
+//                            .cornerRadius(10)
+//                            .offset(x: 10)
                     }
                     
                     

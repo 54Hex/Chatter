@@ -2,6 +2,8 @@ import SwiftUI
 
 @main
 struct MyApp: App {
+   
+    
 
     var body: some Scene {
         WindowGroup {
@@ -9,7 +11,9 @@ struct MyApp: App {
                 .preferredColorScheme(.dark)
                 .accentColor(.white)
                 .navigationViewStyle(StackNavigationViewStyle())
+            
         }
+       
     }
 }
 
