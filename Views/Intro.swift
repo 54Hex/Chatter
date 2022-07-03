@@ -1,13 +1,65 @@
 import SwiftUI
-import UIKit
+//import UIKit
 
 
-struct Intro: View {
-    
-    
+// controller (bc navigation view suckssss)
+struct ViewController: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
-        NavigationView {
+        switch viewRouter.currentPage {
+        case .page1:
+            Intro()
+        case .page2:
+            Intro2()
+        case .page3:
+            TB()
+               
+        }
+        
+    }
+}
+
+
+enum Page {
+    case page1
+    case page2
+    case page3
+}
+
+
+class ViewRouter: ObservableObject {
+    @Published var currentPage: Page = .page1
+}
+
+// next button, ofc...
+struct NextButton: View {
+    var body: some View {
+        Text("Next")
+            .font(.system(size: 30, weight: .semibold ,design: .rounded))
+            .foregroundColor(.white)
+            .padding()
+            .background(Color("Charcoal"))
+            .cornerRadius(20)
+        
+        
+    }
+}
+
+// custom colors
+struct CC {
+    static let Purple = Color("Purple")
+    static let Yellow = Color("Yellow")
+    static let Charcoal = Color("Charcoal")
+    static let DG = Color("DG")
+}
+
+//---------------------------------------------------------------//
+struct Intro: View {
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
+    var body: some View {
             VStack {
                 Image("ChatterV2C")
                     .resizable()
@@ -22,31 +74,12 @@ struct Intro: View {
                 }
                 .offset(y: -100)
                 
-//                Text("""
-//                 Note:
-//                 This experience is best viewed in Horizontal
-//                 """)
-//                .font(.system(size: 30, weight: .semibold, design: .rounded))
-//                .fixedSize(horizontal: true, vertical: true)
-//                .foregroundColor(.secondary)
-//                .offset(y: -100)
-//                .padding()
-                
-                NavigationLink(destination: Intro2()) {
-                    Text("Next")
-                    
-                        .font(.system(size: 30, weight: .semibold ,design: .rounded))
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color("Charcoal"))
-                        .cornerRadius(20)
-                    
-                }.offset(y: -100)
-                
+                Button(action: {
+                    viewRouter.currentPage = .page2
+                }) {
+                    NextButton()
+                }
             }
-            
-            
-        }
     }
 }
 
@@ -54,6 +87,9 @@ struct Intro: View {
 
 
 struct Intro2: View {
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
     var body: some View {
         
         ZStack {
@@ -126,11 +162,8 @@ struct Intro2: View {
             
             
             Group {
-    
                 HStack {
-                    
                     VStack {
-                        
                         HStack {
                             Text("The Team")
                                 .font(.system(size: 35, weight: .semibold, design: .rounded))
@@ -138,12 +171,10 @@ struct Intro2: View {
                         }
                         
                         HStack {
-                            
                             Image(systemName: "person.fill")
                                 .font(.system(size: 30))
                             Text("James")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            
                         }.offset(x: 0)
                             .frame(width: 250, height: 50)
                             .background(Color("DG"))
@@ -155,172 +186,42 @@ struct Intro2: View {
                                 .font(.system(size: 30))
                             Text("Natalie")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            
-                            
                         }
                         .frame(width: 250, height: 50)
                         .background(Color("DG"))
                         .cornerRadius(10)
                         .offset(x: -10, y: -5)
-                        
                     }
-                    
-                    
                     VStack {
-                        
-//                        HStack {
-                            
-//                            Image(systemName: "person.fill")
-//                                .font(.system(size: 30))
-//                            Text("Name 3")
-//                                .font(.system(size: 30, weight: .semibold, design: .rounded))
-//
-//                        }.offset(x: 0)
-//                            .frame(width: 250, height: 50)
-//                            .background(Color("DG"))
-//                            .cornerRadius(10)
-//                            .offset(x: 10)
-                        
                         HStack {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 30))
                             Text("Hayden")
                                 .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            
                         }.offset(x: 0)
                             .frame(width: 250, height: 50)
                             .background(Color("DG"))
                             .cornerRadius(10)
                             .offset(x: 10)
-                        
-//                        HStack {
-//                            Image(systemName: "person.fill")
-//                                .font(.system(size: 30))
-//                            Text("Name 5")
-//                                .font(.system(size: 30, weight: .semibold, design: .rounded))
-//
-//                        }.offset(x: 0)
-//                            .frame(width: 250, height: 50)
-//                            .background(Color("DG"))
-//                            .cornerRadius(10)
-//                            .offset(x: 10)
                     }
-                    
-                    
                 }
                 .frame(width: 580, height: 200)
                 .background(Color("Charcoal"))
                 .cornerRadius(20)
                 .offset(x:0, y: 160)
-                
-                
             }
-            
-            //
-            //                VStack {
-            //                    Image(systemName: "")
-            //                        .font(.system(size: 60))
-            //                        .foregroundColor(.white)
-            //                        .padding()
-            //
-            //                    Text("")
-            //                                    .font(.system(size: 30, weight: .bold, design: .rounded))
-            //
-            //                }
-            //                .frame(width: 400, height: 400)
-            //                .background(Color("Charcoal"))
-            //                .cornerRadius(20)
-            //                .offset(x: -180, y: 140)
-            
-            
-            //                Group {
-            //                    VStack {
-            //                        HStack {
-            //                            Text("Team Members")
-            //                                .font(.system(size: 30, weight: .bold, design: .rounded))
-            //                        }
-            //
-            //                        VStack {
-            //                            HStack {
-            //                                Image(systemName: "person.fill")
-            //                                    .font(.system(size: 30))
-            //                                Text("Name 1")
-            //                                    .font(.system(size: 30, weight: .semibold, design: .rounded))
-            //                            }.offset(x: 0)
-            //                                .frame(width: 280, height: 50)
-            //                                .background(Color("DG"))
-            //                                .cornerRadius(10)
-            //
-            //                            HStack {
-            //                                Image(systemName: "person.fill")
-            //                                    .font(.system(size: 30))
-            //                                Text("Name 2")
-            //                                    .font(.system(size: 30, weight: .semibold, design: .rounded))
-            //                            }.offset(x: 0)
-            //                                .frame(width: 280, height: 50)
-            //                                .background(Color("DG"))
-            //                                .cornerRadius(10)
-            //
-            //
-            //
-            //                            HStack {
-            //                                Image(systemName: "person.fill")
-            //                                    .font(.system(size: 30))
-            //                                Text("Name 3")
-            //                                    .font(.system(size: 30, weight: .semibold, design: .rounded))
-            //                            }.offset(x: 0)
-            //                                .frame(width: 280, height: 50)
-            //                                .background(Color("DG"))
-            //                                .cornerRadius(10)
-            //
-            //
-            //                            HStack {
-            //                                Image(systemName: "person.fill")
-            //                                    .font(.system(size: 30))
-            //                                Text("Name 4")
-            //                                    .font(.system(size: 30, weight: .semibold, design: .rounded))
-            //                            }.offset(x: 0)
-            //                                .frame(width: 280, height: 50)
-            //                                .background(Color("DG"))
-            //                                .cornerRadius(10)
-            //
-            //
-            //
-            //                            HStack {
-            //                                Image(systemName: "person.fill")
-            //                                    .font(.system(size: 30))
-            //                                Text("Name 5")
-            //                                    .font(.system(size: 30, weight: .semibold, design: .rounded))
-            //                            }.offset(x: 0)
-            //                                .frame(width: 280, height: 50)
-            //                                .background(Color("DG"))
-            //                                .cornerRadius(10)
-            //
-            //                        }
-            //
-            //                    }
-            //                    .frame(width: 350, height: 350)
-            //                    .background(Color("Charcoal"))
-            //                    .cornerRadius(20)
-            //                    .offset(x: 200, y: 140)
-            //                }
-            
-            
-            
-            NavigationLink(destination: TB()) {
-                Text("Let's Get Started")
-                
-                    .font(.system(size: 30, weight: .semibold ,design: .rounded))
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color("Charcoal"))
-                    .cornerRadius(20)
-            }.offset(y: 310)
-            
-            
+          
         }
+        Button(action: {
+            viewRouter.currentPage = .page3
+        }) {
+            NextButton()
+        }.offset(y: 250)
     }
+    
 }
+
+
 
 
 
@@ -328,34 +229,31 @@ struct Intro2: View {
 // Previews
 struct Intro_Previews: PreviewProvider {
     static var previews: some View {
-        Intro()
-            .previewInterfaceOrientation(.landscapeLeft)
+        Intro().environmentObject(ViewRouter())
             .preferredColorScheme(.dark)
             .accentColor(.white)
-            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct Intro2_Previews: PreviewProvider {
     static var previews: some View {
-        Intro2()
-            .previewInterfaceOrientation(.landscapeRight)
+        Intro2().environmentObject(ViewRouter())
             .preferredColorScheme(.dark)
+            .accentColor(.white)
+    }
+}
+
+struct ViewController_previews: PreviewProvider {
+    static var previews: some View {
+        ViewController().environmentObject(ViewRouter())
     }
 }
 
 
 
-
-
+// ignore
 //LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: .bottomLeading, endPoint: .trailing)
 //    .mask(Text("").font(Font.system(size: 30)).fontWeight(.semibold))
 
 
-struct CC {
-    static let Purple = Color("Purple")
-    static let Yellow = Color("Yellow")
-    static let Charcoal = Color("Charcoal")
-    static let DG = Color("DG")
-}
 

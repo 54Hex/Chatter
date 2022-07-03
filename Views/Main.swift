@@ -1,4 +1,5 @@
 import SwiftUI
+import AVKit 
 
 struct TB: View {
     var body: some View {
@@ -24,6 +25,8 @@ struct TB: View {
 
 
 struct Main: View {
+    
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -31,7 +34,9 @@ struct Main: View {
                     .font(.system(size: 40, weight: .bold, design: .default))
                     .offset(x: -120)
     
-                
+                Text("What would you like to learn today?")
+                    .font(.system(size: 25, weight: .light, design: .default))
+                    .offset(x: -100)
             }
         }
     }
@@ -44,15 +49,8 @@ struct Main: View {
 struct TB_Previews: PreviewProvider {
     static var previews: some View {
         TB()
-            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewInterfaceOrientation(.landscapeLeft)
             .preferredColorScheme(.dark)
             .navigationViewStyle(StackNavigationViewStyle())
-    }
-}
-
-struct Main_Previews: PreviewProvider {
-    static var previews: some View {
-        Main()
-            .preferredColorScheme(.dark)
     }
 }

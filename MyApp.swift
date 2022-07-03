@@ -3,15 +3,13 @@ import SwiftUI
 @main
 struct MyApp: App {
    
-    
+    @StateObject var viewRouter = ViewRouter()
 
     var body: some Scene {
         WindowGroup {
-            Intro()
+            ViewController().environmentObject(ViewRouter())
                 .preferredColorScheme(.dark)
-                .accentColor(.white)
-                .navigationViewStyle(StackNavigationViewStyle())
-            
+                .accentColor(.white)  
         }
        
     }
